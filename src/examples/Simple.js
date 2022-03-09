@@ -47,7 +47,7 @@ function Simple () {
   searchNews('docker').then(result=> {
     console.log("result :",result)
     db=result.map(news=>{
-      console.log("news :",news,news.provider[0].image.thumbnail.contentUrl)
+      // console.log("news :",news,news.provider[0].image.thumbnail.contentUrl)
       let img = ''
       if(news,news.provider.lenth){
         img = news.provider[0].image.thumbnail.contentUrl
