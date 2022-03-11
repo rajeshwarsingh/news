@@ -117,7 +117,7 @@ function Advanced({db=[]}) {
     margin: 'auto',width: '100%',padding: '0px'}}>
     {/* <h1>React Tinder Card</h1> */}
     <div className='cardContainer'>
-      {console.log("@@@@@@@@@@@",db)}
+      {/* {console.log("@@@@@@@@@@@",db)} */}
       {db.map((character, index) => (
         <TinderCard
           ref={childRefs[index]}
@@ -139,7 +139,7 @@ function Advanced({db=[]}) {
 
     </div>
     <br /><br />
-    <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+    {/* <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={4}>
         <Item><div className='buttons'>
           <Button disabled={!canSwipe} onClick={() => swipe('left')} variant="contained" endIcon={<ArrowBackIosIcon />}></Button>
@@ -155,13 +155,13 @@ function Advanced({db=[]}) {
           <Button disabled={!canSwipe} onClick={() => swipe('right')} variant="contained" endIcon={<ArrowForwardIosIcon />}></Button>
         </div></Item>
       </Grid>
-    </Grid>
+    </Grid> */}
     {/* <div className='buttons'>
       <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
       <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
       <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
     </div> */}
-    {lastDirection ? (
+    {/* {lastDirection ? (
       <h2 key={lastDirection} className='infoText'>
         You swiped {lastDirection}
       </h2>
@@ -169,7 +169,7 @@ function Advanced({db=[]}) {
       <h2 className='infoText'>
         Swipe a card or press a button to get Restore Card button visible!
       </h2>
-    )}
+    )} */}
   </div>
 )
 

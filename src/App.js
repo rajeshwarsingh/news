@@ -26,7 +26,7 @@ function App () {
       "x-bingapis-sdk": "true"
     }
   }).then(response=>response.json()).then((res)=>{
-    console.log("api response : ", res)
+    // console.log("api response : ", res)
     let db=res.value.map(news=>{
       let img = ''
       if(news,news.provider.lenth){
@@ -39,17 +39,15 @@ function App () {
     });
 
     setNewsData(db)
-    console.log('show res: ', db)
+    // console.log('show res: ', db)
   })
-
-
 
   },[])
   
 
   return (
     <React.Fragment>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <div>
         {/* <Box sx={{ bgcolor: '', height: '100vh' }} > */}
         <ResponsiveAppBar/>
