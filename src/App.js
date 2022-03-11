@@ -16,8 +16,8 @@ function App () {
   useEffect(()=>{
 
 
-
-    let q = encodeURIComponent('stock');
+    let selectedQuery = localStorage.getItem('Name') || 'stock'
+    let q = encodeURIComponent(selectedQuery);
   fetch(`https://bing-news-search1.p.rapidapi.com/news/search?freshness=Day&textFormat=Raw&safeSearch=Strict&q=${q}`, {
     "method": "GET",
     "headers": {
@@ -29,7 +29,7 @@ function App () {
     // console.log("api response : ", res)
     let db=res.value.map(news=>{
       let img = ''
-      if(news,news.provider.lenth){
+      if(news,news.provider.length){
         img = news.provider[0].image.thumbnail.contentUrl
       }
       return {

@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['current affairs', 'Stock', 'news'];
+const pages = ['current affairs', 'Stock', 'news','bollywood'];
 const settings = [];
 
 const ResponsiveAppBar = () => {
@@ -26,7 +26,10 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
+    alert('as :'+page)
+    localStorage.setItem('Name', page);
+
     setAnchorElNav(null);
   };
 
@@ -44,7 +47,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            NW
+            {localStorage.getItem('Name') || 'stock'}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -77,7 +80,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={()=>handleCloseNavMenu(page)}>
+                
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -89,7 +93,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            NW
+            {localStorage.getItem('Name') || 'stock'}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
