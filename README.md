@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+Refer website :-
+
+https://rapidapi.com/blog/news-app-react/
+https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

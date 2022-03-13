@@ -33,9 +33,12 @@ function App() {
         if (news, news.provider.length) {
           img = news.provider[0].image.thumbnail.contentUrl
         }
+        
         return {
           name: news.name,
-          url: news.provider[0].image.thumbnail.contentUrl
+          url: news.provider[0].image.thumbnail.contentUrl,
+          description: news.description,
+          link:news.url
         }
       });
 

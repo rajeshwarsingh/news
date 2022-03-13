@@ -63,8 +63,10 @@ export default function RecipeReviewCard({data}) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {news.name}
-          <br/><br/><br/><br/><br/><br/><br/>
+          {news.description}
+          <br/>
+          <a href={news.link}>{news.link}</a>
+          <br/><br/><br/><br/><br/><br/>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
