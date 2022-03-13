@@ -37,7 +37,7 @@ export default function RecipeReviewCard({data}) {
   let news =data[0]
   return (
     <Card
-    style={{height:'534px'}}
+    style={{height:'650px'}}
     >
       <CardHeader
         avatar={
