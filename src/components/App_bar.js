@@ -63,7 +63,7 @@ export default function ElevateAppBar(props) {
   };
 
   const handleCloseNavMenu = (page) => {
-    alert('as :'+page)
+    // alert('as :'+page)
     localStorage.setItem('Name', page);
 
     setAnchorElNav(null);

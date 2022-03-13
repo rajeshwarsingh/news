@@ -36,7 +36,9 @@ export default function RecipeReviewCard({data}) {
 
   let news =data[0]
   return (
-    <Card>
+    <Card
+    style={{height:'534px'}}
+    >
       <CardHeader
         avatar={
           <Avatar src={news.url} sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -60,7 +62,7 @@ export default function RecipeReviewCard({data}) {
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           {news.name}
-          <br/><br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/><br/><br/><br/>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
