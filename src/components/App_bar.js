@@ -125,6 +125,7 @@ export default function ElevateAppBar(props) {
               ))}
             </Menu>
           </Box>
+          
           <Typography
             variant="h6"
             noWrap
@@ -133,6 +134,7 @@ export default function ElevateAppBar(props) {
           >
             {localStorage.getItem('Name') || 'stock'}
           </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -151,7 +153,7 @@ export default function ElevateAppBar(props) {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/logo1.jpg" />
               </IconButton>
             </Tooltip>
-            <Menu
+            {/* <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -172,7 +174,7 @@ export default function ElevateAppBar(props) {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
           </Box>
         </Toolbar>
         </AppBar>
