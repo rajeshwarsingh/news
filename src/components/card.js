@@ -35,10 +35,12 @@ export default function RecipeReviewCard({data}) {
   };
 
   let news =data[0]
+  let Dt = new Date()
   return (
     <Card
     style={{height:'650px'}}
     >
+      
       <CardHeader
         avatar={
           <Avatar src={news.url} sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -50,8 +52,8 @@ export default function RecipeReviewCard({data}) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={news.name}
-        subheader="September 14, 2016"
+        title={<span><b>{news.name}</b></span>}
+        subheader={Dt.toDateString()}
       />
       <CardMedia
         component="img"
