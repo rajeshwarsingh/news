@@ -116,7 +116,6 @@ function Advanced({db=[]}) {
     margin: 'auto',width: '100%',padding: '0px'}}>
     {/* <h1>React Tinder Card</h1> */}
     <div className='cardContainer'>
-      {/* {console.log("@@@@@@@@@@@",db)} */}
       {db.map((character, index) => (
         <TinderCard
           ref={childRefs[index]}

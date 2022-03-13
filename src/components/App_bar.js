@@ -1,4 +1,5 @@
-import * as React from 'react';
+// import * as React from 'react';
+import React, { useEffect, useState, useReducer } from 'react'
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,6 +8,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+
+
+
 
 // import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';
@@ -21,6 +25,16 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import newsDataReducer from '../store/reducer'
+import ACTIONS from '../actions/action'
+import {getNews, setNewsType} from '../actions/news_action'
+
+const initialState = {
+  newsData: '',
+  loading: false,
+  error: null,
+  newsDataType :''
+};
 
 
 function ElevationScroll(props) {
@@ -52,8 +66,16 @@ const pages = ['current affairs', 'Stock', 'news','bollywood'];
 const settings = [];
 
 export default function ElevateAppBar(props) {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [state, dispatch] = useReducer(newsDataReducer, initialState);
+  const { newsDataType } = state;
+    const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  //  useEffect(() => {
+  //   dispatch({ type: ACTIONS.CALL_API });
+  //   getNews(dispatch, 'bollywood');
+  //   setNewsType(dispatch, 'bollywood')
+  // }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -63,9 +85,9 @@ export default function ElevateAppBar(props) {
   };
 
   const handleCloseNavMenu = (page) => {
-    // alert('as :'+page)
-    localStorage.setItem('Name', page);
-
+      dispatch({ type: ACTIONS.CALL_API });
+      getNews(dispatch, page);
+      setNewsType(dispatch, page)
     setAnchorElNav(null);
   };
 
@@ -132,7 +154,7 @@ export default function ElevateAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            {localStorage.getItem('Name') || 'stock'}
+            {newsDataType || 'current affairs'}
           </Typography>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
