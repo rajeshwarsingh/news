@@ -1,6 +1,6 @@
 body {
-  background-image: url("bg3.jpg");
-  background-color: #cccccc;
+  /* background-image: url("bg3.jpg"); */
+  background-color: 'white';
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

@@ -1,26 +1,27 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import CssBaseline from '@mui/material/CssBaseline';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
+// import * as React from 'react';
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
+// import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-// import * as React from 'react';
-import PropTypes from 'prop-types';
-// import AppBar from '@mui/material/AppBar';
-// import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-// import Box from '@mui/material/Box';
-// import Container from '@mui/material/Container';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -50,8 +51,8 @@ ElevationScroll.propTypes = {
 const pages = ['current affairs', 'Stock', 'news','bollywood'];
 const settings = [];
 
-const ResponsiveAppBar = (props) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+export default function ElevateAppBar(props) {
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -71,13 +72,12 @@ const ResponsiveAppBar = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  
   return (
     <React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
-    <AppBar position="static">
-      <Container maxWidth="xl">
+        <AppBar>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -175,10 +175,10 @@ const ResponsiveAppBar = (props) => {
             </Menu>
           </Box>
         </Toolbar>
-      </Container>
-    </AppBar>
-    </ElevationScroll>
+        </AppBar>
+      </ElevationScroll>
+      <Toolbar />
+      
     </React.Fragment>
   );
-};
-export default ResponsiveAppBar;
+}

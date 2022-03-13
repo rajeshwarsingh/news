@@ -9,6 +9,8 @@ import Container from '@mui/material/Container';
 import Advanced from './examples/Advanced'
 import Simple from './examples/Simple'
 import ResponsiveAppBar from './components/appbar'
+import ElevationScroll from './components/App_bar'
+import FixedBottomNavigation from './footer'
 
 function App () {
   const [showAdvanced, setShowAdvanced] = useState(true)
@@ -50,8 +52,10 @@ function App () {
       {/* <CssBaseline /> */}
       <div>
         {/* <Box sx={{ bgcolor: '', height: '100vh' }} > */}
-        <ResponsiveAppBar/>
+        <ElevationScroll/>
       {showAdvanced ? <Advanced db={newsData?newsData:[]}/> : <Simple />}
+      <FixedBottomNavigation/>
+
       {/* <div className='row'>
         <p style={{ color: '#fff' }}>Show advanced example</p> <Switch checked={showAdvanced} onChange={setShowAdvanced} />
       </div> */}
