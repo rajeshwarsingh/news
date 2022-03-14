@@ -86,7 +86,7 @@ export default function ElevateAppBar(props) {
               component="div"
               sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             >
-              {localStorage.getItem('Name') || 'stock'}
+              {newsDataType || defaultNewsType}
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
