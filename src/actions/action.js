@@ -1,5 +1,3 @@
-
-
 const ACTIONS = {
     CALL_API: 'call-api',
     SUCCESS: 'success',

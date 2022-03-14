@@ -1,30 +1,13 @@
-import React, { useEffect, useState, useReducer } from 'react'
-import './App.css'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import './resource/css/App.css'
 import Advanced from './examples/Advanced'
 import ElevationScroll from './components/App_bar'
-import FixedBottomNavigation from './footer'
-import newsDataReducer from './store/reducer'
-import ACTIONS from './actions/action'
-import {getNews, setNewsType} from './actions/news_action'
-
-const initialState = {
-  newsData: '',
-  loading: false,
-  error: null,
-  newsDataType:''
-};
-
+import FixedBottomNavigation from './components/footer'
 
 function App() {
-  const [state, dispatch] = useReducer(newsDataReducer, initialState);
-  const { newsData, loading, error } = state;
-
-  useEffect(() => {
-    dispatch({ type: ACTIONS.CALL_API });
-    getNews(dispatch, 'current affairs');
-    setNewsType(dispatch, 'current affairs')
-  }, []);
-
+  const newsData = useSelector((state) => state.newsData)
+  
   return (
     <React.Fragment>
       <ElevationScroll />

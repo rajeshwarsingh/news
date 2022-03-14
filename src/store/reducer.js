@@ -1,6 +1,14 @@
 import ACTIONS from '../actions/action'
+const initialState = {
+    newsData: [],
+    loading: false,
+    error: null,
+    newsDataType:''
+  };
 
-const newsDataReducer = (state, action) => {
+const newsDataReducer = (state=initialState, action) => {
+
+    console.log('state: ',state)
     switch (action.type) {
         case ACTIONS.CALL_API: {
             return {
@@ -28,6 +36,8 @@ const newsDataReducer = (state, action) => {
                 error: action.error,
             };
         }
+        default:
+        return state
     }
   };
 
