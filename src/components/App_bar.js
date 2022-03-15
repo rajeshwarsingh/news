@@ -47,7 +47,7 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const pages = ['current affairs', 'Stock', 'news', 'bollywood'];
+const pages = ['current affairs', 'Stock','sports', 'news', 'bollywood'];
 const settings = [];
 
 const Search = styled('div')(({ theme }) => ({
