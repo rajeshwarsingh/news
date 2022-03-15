@@ -24,9 +24,6 @@ const defaultNewsType = 'Stock'
 
 function ElevationScroll(props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
@@ -47,7 +44,7 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const pages = ['current affairs', 'Stock','sports', 'news', 'bollywood'];
+const pages = ['current affairs', 'Stock', 'sports', 'news', 'bollywood'];
 const settings = [];
 
 const Search = styled('div')(({ theme }) => ({
@@ -58,7 +55,7 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  marginRight:5,
+  marginRight: 5,
   width: '50%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
@@ -126,17 +123,17 @@ export default function ElevateAppBar(props) {
     setAnchorElUser(null);
   };
 
-  const handleChange =(e)=> {
+  const handleChange = (e) => {
     SetInputSearch(e.target.value)
- }
+  }
 
- const keyPress = (e)=>{
-    if(e.keyCode == 13){
+  const keyPress = (e) => {
+    if (e.keyCode == 13) {
       getSearchedNews(dispatch, e.target.value);
-    setNewsType(dispatch, e.target.value)
-    setAnchorElNav(null);
+      setNewsType(dispatch, e.target.value)
+      setAnchorElNav(null);
     }
- }
+  }
 
   return (
     <React.Fragment>
@@ -152,7 +149,7 @@ export default function ElevateAppBar(props) {
             >
               {newsDataType || defaultNewsType}
             </Typography>
-            
+
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
@@ -164,7 +161,7 @@ export default function ElevateAppBar(props) {
               >
                 <MenuIcon />
               </IconButton>
-              
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -191,7 +188,7 @@ export default function ElevateAppBar(props) {
                 ))}
               </Menu>
             </Box>
-            
+
 
             <Typography
               variant="h6"
@@ -219,15 +216,15 @@ export default function ElevateAppBar(props) {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
-                value={inputSearch} 
-                onKeyDown={keyPress} 
+                value={inputSearch}
+                onKeyDown={keyPress}
                 onChange={handleChange}
               />
             </Search>
-            <Box sx={{ flexGrow: 0, marginRight:0.1 }}>
+            <Box sx={{ flexGrow: 0, marginRight: 0.1 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                {/* <img src="/img/logo1.jpg" alt="Paris"/> */}
+                  {/* <img src="/img/logo1.jpg" alt="Paris"/> */}
                   <Avatar alt="Remy Sharp" src="/img/tidbit.png" />
                 </IconButton>
               </Tooltip>

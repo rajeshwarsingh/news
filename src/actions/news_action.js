@@ -5,9 +5,10 @@ const getNews = async (dispatch, newsType) => {
 
   var options = {
     method: 'GET',
-    url: 'https://bing-news-search1.p.rapidapi.com/news/search',
-    params: { q: newsType, freshness: 'Day', textFormat: 'Raw', safeSearch: 'Off' },
+    url: 'https://bing-news-search1.p.rapidapi.com/news',
+    params: {setLang: 'ar', safeSearch: 'Off', textFormat: 'Raw'},
     headers: {
+      'accept-language': 'ar',
       'x-bingapis-sdk': 'true',
       'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
       'x-rapidapi-key': 'e278301744msh1c99c69b72ab917p149b25jsn246205d45abb'
