@@ -128,7 +128,6 @@ export default function ElevateAppBar(props) {
 
   const handleChange =(e)=> {
     SetInputSearch(e.target.value)
-    // this.setState({ value: e.target.value });
  }
 
  const keyPress = (e)=>{
@@ -136,8 +135,6 @@ export default function ElevateAppBar(props) {
       getSearchedNews(dispatch, e.target.value);
     setNewsType(dispatch, e.target.value)
     setAnchorElNav(null);
-      //  console.log('value', e.target.value);
-       // put the login here
     }
  }
 
@@ -230,7 +227,8 @@ export default function ElevateAppBar(props) {
             <Box sx={{ flexGrow: 0, marginRight:0.1 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/logo1.jpg" />
+                {/* <img src="/img/logo1.jpg" alt="Paris"/> */}
+                  <Avatar alt="Remy Sharp" src="/img/tidbit.png" />
                 </IconButton>
               </Tooltip>
               {/* <Menu
