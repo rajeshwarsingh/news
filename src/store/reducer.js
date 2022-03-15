@@ -8,7 +8,6 @@ const initialState = {
 
 const newsDataReducer = (state=initialState, action) => {
 
-    console.log('state: ',state)
     switch (action.type) {
         case ACTIONS.CALL_API: {
             return {

@@ -1,17 +1,13 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArchiveIcon from '@mui/icons-material/Archive';
 import Paper from '@mui/material/Paper';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
+import { getNews, setNewsType, getTrendingNews } from '../actions/news_action'
 
 function refreshMessages() {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
@@ -25,12 +21,23 @@ export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
-
+  const dispatch = useDispatch()
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
     setMessages(refreshMessages());
   }, [value, setMessages]);
 
+  const handleTrending = ()=>{
+    
+    getTrendingNews(dispatch, 'Trending');
+    setNewsType(dispatch, 'Trending')
+  }
+
+  const handleRegular = ()=>{
+    
+    getNews(dispatch, 'Stock');
+    setNewsType(dispatch, 'Stock')
+  }
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
       <CssBaseline />
@@ -52,9 +59,10 @@ export default function FixedBottomNavigation() {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+          <BottomNavigationAction label="Regular" onClick={handleRegular} icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Trending" onClick={handleTrending} icon={<RestoreIcon />} />
+          
+          {/* <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} /> */}
         </BottomNavigation>
       </Paper>
     </Box>
