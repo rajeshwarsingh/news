@@ -21,6 +21,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { getNews, setNewsType, getSearchedNews } from '../actions/news_action'
 
 const defaultNewsType = 'Stock'
+const pages = ['current affairs', 'Stock', 'sports', 'news', 'bollywood'];
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -44,7 +45,7 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const pages = ['current affairs', 'Stock', 'sports', 'news', 'bollywood'];
+
 const settings = [];
 
 const Search = styled('div')(({ theme }) => ({
@@ -119,6 +120,12 @@ export default function ElevateAppBar(props) {
     SetInputSearch('')
   };
 
+  const handleCloseNavMenuForUnselected = () => {
+    setAnchorElNav(null);
+  };
+
+  
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -175,7 +182,7 @@ export default function ElevateAppBar(props) {
                   horizontal: 'left',
                 }}
                 open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+                onClose={handleCloseNavMenuForUnselected}
                 sx={{
                   display: { xs: 'block', md: 'none' },
                 }}
@@ -205,7 +212,7 @@ export default function ElevateAppBar(props) {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  {page || defaultNewsType}
                 </Button>
               ))}
             </Box>
