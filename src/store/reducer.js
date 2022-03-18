@@ -3,11 +3,11 @@ const initialState = {
     newsData: [],
     loading: false,
     error: null,
-    newsDataType:''
+    newsDataType:'',
+    setLanguage:'en'
   };
 
 const newsDataReducer = (state=initialState, action) => {
-
     switch (action.type) {
         case ACTIONS.CALL_API: {
             return {
@@ -26,6 +26,12 @@ const newsDataReducer = (state=initialState, action) => {
             return {
                 ...state,
                 newsDataType: action.data,
+            };
+        }
+        case ACTIONS.SETLANGUAGE: {
+            return {
+                ...state,
+                setLanguage: action.data,
             };
         }
         case ACTIONS.ERROR: {

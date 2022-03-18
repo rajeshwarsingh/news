@@ -8,6 +8,7 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Paper from '@mui/material/Paper';
 import { getNews, setNewsType, getTrendingNews } from '../actions/news_action'
+import strings from '../locale/localize'
 
 function refreshMessages() {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
@@ -19,6 +20,7 @@ function refreshMessages() {
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
+  const setLanguage = useSelector((state) => state.setLanguage)
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
   const dispatch = useDispatch()
@@ -29,13 +31,13 @@ export default function FixedBottomNavigation() {
 
   const handleTrending = ()=>{
     
-    getTrendingNews(dispatch, 'Trending');
+    getTrendingNews(dispatch, 'Trending', setLanguage);
     setNewsType(dispatch, 'Trending')
   }
 
   const handleRegular = ()=>{
     
-    getNews(dispatch, 'Stock');
+    getNews(dispatch, 'Stock', setLanguage);
     setNewsType(dispatch, 'Stock')
   }
   return (
@@ -59,8 +61,8 @@ export default function FixedBottomNavigation() {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Regular" onClick={handleRegular} icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Trending" onClick={handleTrending} icon={<RestoreIcon />} />
+          <BottomNavigationAction label={strings['regular']} onClick={handleRegular} icon={<FavoriteIcon />} />
+          <BottomNavigationAction label={strings['trending']}  onClick={handleTrending} icon={<RestoreIcon />} />
           
           {/* <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} /> */}
         </BottomNavigation>

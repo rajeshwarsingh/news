@@ -2,16 +2,17 @@ import '../resource/css/Appcard.css'
 import React, { useState, useMemo, useRef } from 'react'
 import TinderCard from 'react-tinder-card'
 import RecipeReviewCard from '../components/card'
+import Button from '@mui/material/Button';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 function Advanced({ db = [] }) {
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
-  // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex)
 
   const childRefs = useMemo(
     () =>
-      Array(db.length)
+      Array(30)
         .fill(0)
         .map((i) => React.createRef()),
     []
@@ -33,6 +34,7 @@ function Advanced({ db = [] }) {
   }
 
   const outOfFrame = (name, idx) => {
+    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
     // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
     // TODO: when quickly swipe and restore multiple times the same card,
@@ -64,7 +66,10 @@ function Advanced({ db = [] }) {
       href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
       rel='stylesheet'
     />
-
+    <div style={{ textAlign: 'center' }}>
+      <Button onClick={() => goBack()} variant="" startIcon={<ArrowCircleLeftIcon />}>
+        Previouse News
+      </Button></div>
     <div style={{
       margin: 'auto', width: '100%', padding: '0px'
     }}>
@@ -81,9 +86,11 @@ function Advanced({ db = [] }) {
             <RecipeReviewCard data={[character, index]} />
           </TinderCard>
         ))}
-      </div>
+      </div><br /><br /><br /><br /><br /><br />
+
 
     </div>
+
     <br /><br />
   </div>
   )
