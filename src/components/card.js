@@ -43,7 +43,7 @@ export default function RecipeReviewCard({data}) {
       
       <CardHeader
         avatar={
-          <Avatar src={news.url} sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar src={news.url} sx={{ bgcolor: red[500]}} aria-label="recipe">
             R
           </Avatar>
         }
@@ -52,7 +52,7 @@ export default function RecipeReviewCard({data}) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={<span><b>{news.name}</b></span>}
+        title={<span style={{fontSize:'larger'}}><b>{news.name}</b></span>}
         subheader={Dt.toDateString()}
       />
       <CardMedia

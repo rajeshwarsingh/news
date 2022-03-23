@@ -45,9 +45,7 @@ function Simple () {
   useEffect(()=>{
 
   searchNews('docker').then(result=> {
-    console.log("result :",result)
     db=result.map(news=>{
-      // console.log("news :",news,news.provider[0].image.thumbnail.contentUrl)
       let img = ''
       if(news,news.provider.lenth){
         img = news.provider[0].image.thumbnail.contentUrl
@@ -57,7 +55,6 @@ function Simple () {
         url:news.provider[0].image.thumbnail.contentUrl
       }
     });
-console.log("db ----------:",db)
   })
    
 
@@ -70,27 +67,31 @@ console.log("db ----------:",db)
   const [lastDirection, setLastDirection] = useState()
 
   const swiped = (direction, nameToDelete) => {
-    console.log('removing: ' + nameToDelete)
     setLastDirection(direction)
   }
 
   const outOfFrame = (name) => {
-    console.log(name + ' left the screen!')
+    // console.log(name + ' left the screen!')
   }
 
   return (
 
-    <div>{ console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@",db)}
+    <div>
       <link href='https://fonts.googleapis.com/css?family=Damion&display=swap' rel='stylesheet' />
       <link href='https://fonts.googleapis.com/css?family=Alatsi&display=swap' rel='stylesheet' />
       <h1>React Tinder Card</h1>
       <div className='cardContainer'>
-        {characters.map((character) =>
-          <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
+        {characters.map((character,i) =>{
+          if(i===2){
+            return 
+          }else{
+            <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
               <h3>{character.name}</h3>
             </div>
           </TinderCard>
+          }
+          }
         )}
       </div>
       {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />}

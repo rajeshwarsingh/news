@@ -4,7 +4,7 @@ import TinderCard from 'react-tinder-card'
 import RecipeReviewCard from '../components/card'
 import Button from '@mui/material/Button';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-
+import MyLeaderBoardAd from '../components/MyLeaderBoardAd'
 function Advanced({ db = [] }) {
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
@@ -34,7 +34,6 @@ function Advanced({ db = [] }) {
   }
 
   const outOfFrame = (name, idx) => {
-    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
     // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
     // TODO: when quickly swipe and restore multiple times the same card,
@@ -66,6 +65,7 @@ function Advanced({ db = [] }) {
       href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
       rel='stylesheet'
     />
+    
     <div style={{ textAlign: 'center' }}>
       <Button onClick={() => goBack()} variant="" startIcon={<ArrowCircleLeftIcon />}>
         Previouse News
@@ -86,7 +86,7 @@ function Advanced({ db = [] }) {
             <RecipeReviewCard data={[character, index]} />
           </TinderCard>
         ))}
-      </div><br /><br /><br /><br /><br /><br />
+      </div><MyLeaderBoardAd/><br /><br /><br /><br /><br /><br />
 
 
     </div>
